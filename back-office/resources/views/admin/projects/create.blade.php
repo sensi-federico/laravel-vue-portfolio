@@ -11,10 +11,9 @@
                 aria-describedby="titleHelper">
         </div>
         <div class="form-group d-flex flex-column py-3">
-            <label for="image">Image</label>
-            <input type="file" class="form-control-file" name="image" id="image" placeholder="Add a image"
-                aria-describedby="imgHelper">
-            <small id="imgHelper" class="form-text text-muted">Add a image</small>
+            <label for="image" class="form-label">Replace Cover Image</label>
+            <input type="file" name="image" id="image" class="form-control" aria-describedby="imageHelper">
+            <small id="imageHelper" class="text-muted">Replace the project image</small>
         </div>
         <div class="my-3">
             <label for="description" class="form-label">description</label>

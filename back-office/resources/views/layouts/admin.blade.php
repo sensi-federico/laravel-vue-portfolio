@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -87,13 +91,13 @@
                                 <a class="nav-link active" aria-current="page"
                                     href="{{ route('admin.projects.index') }}">
                                     <span data-feather="home" class="align-text-bottom"></span>
-                                    Index
+                                    <i class="fa-solid fa-hammer"></i> Project
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="file" class="align-text-bottom"></span>
-                                    Orders
+                                    <i class="fa-solid fa-microchip"></i> Technologies
                                 </a>
                             </li>
                         </ul>

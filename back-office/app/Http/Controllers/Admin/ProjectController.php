@@ -99,8 +99,21 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
+
         // validate the data updated
         $val_data = $this->validation($request->all());
+
+
+        if ($request->hasFile('image')) {
+            // check if the current project has an image if yes, delete it
+            if ($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+            $image = Storage::disk('public')->put('placeholders', $val_data['image']);
+            // replace the value of image inside $val_data
+            $val_data['image'] = $image;
+        }
 
         // create slug of a new title insert
         $project_slug = Str::slug($val_data['title']);
@@ -128,7 +141,7 @@ class ProjectController extends Controller
     {
         // delete the image if exists
         if ($project->image) {
-            Storage::delete($project->image);
+            Storage::disk('public')->delete($project->image);
         }
 
         // delete the project

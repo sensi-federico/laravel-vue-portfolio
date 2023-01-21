@@ -3,7 +3,7 @@
 @section('content')
     @include('partials.errors')
     <h1 class="mt-4">Edit Project!</h1>
-    <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
+    <form action="{{ route('admin.projects.update', $project->slug) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -14,6 +14,15 @@
         <div class="my-3">
             <label for="description" class="form-label">description</label>
             <textarea class="form-control" name="description" id="description" rows="3">{{ old('description', $project->description) }}</textarea>
+        </div>
+
+        <div class="mb-3 d-flex gap-4">
+            <img width="140" src="{{ asset('storage/' . $project->image) }}" alt="">
+            <div>
+                <label for="image" class="form-label">Replace Cover Image</label>
+                <input type="file" name="image" id="image" class="form-control" aria-describedby="imageHelper">
+                <small id="imageHelper" class="text-muted">Replace the project image</small>
+            </div>
         </div>
 
         <div class="mb-3">
