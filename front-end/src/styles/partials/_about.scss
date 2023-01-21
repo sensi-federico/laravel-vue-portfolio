@@ -1,0 +1,79 @@
+.text {
+
+    .title {
+        letter-spacing: 4px;
+    }
+
+    .underline {
+        height: 5px;
+        width: 30px;
+        background-color: #EE8B3A;
+        border-radius: 1rem;
+        margin: 1rem;
+    }
+
+    p {
+        padding-left: 20rem;
+        padding-right: 20rem;
+    }
+}
+
+.content {
+
+    span {
+        color: rgb(73, 73, 73);
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: none;
+        color: #EE8B3A;
+        font-weight: 600;
+
+        &:hover {
+            color: #EE8B3A;
+            text-decoration: underline;
+        }
+    }
+
+    .button {
+        width: 150px;
+        padding: 1rem;
+        border-radius: .2rem;
+        background: #ffa153;
+        letter-spacing: 1px;
+        font-weight: 600;
+        box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
+        transition: all .4s ease 0s;
+
+        &:hover {
+            scale: 1.05;
+            cursor: pointer;
+        }
+    }
+
+    .skill-title {
+        margin-left: 5rem;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 5rem;
+        margin-left: 5rem;
+
+        h6 {
+            background: rgba(195, 195, 195, 0.718);
+            padding: 1rem;
+            margin: .3rem;
+            border-radius: .3rem;
+            transition: all .4s ease 0s;
+
+            &:hover {
+                cursor: default;
+                background-color: #EE8B3A;
+            }
+        }
+    }
+
+}

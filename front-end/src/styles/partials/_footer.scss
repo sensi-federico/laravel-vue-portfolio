@@ -1,0 +1,29 @@
+footer {
+    background-color: black;
+
+    .social-footer {
+
+        &:hover {
+            cursor: default;
+        }
+
+        svg {
+            color: rgba(255, 255, 255, 0.5);
+            transition: all .3s ease 0s;
+            margin-right: .5rem;
+
+            &:hover {
+                color: #EE8B3A;
+                cursor: pointer;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        hr {
+            color: white;
+        }
+    }
+}

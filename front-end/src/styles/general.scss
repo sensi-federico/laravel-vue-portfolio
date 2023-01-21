@@ -1,2 +1,25 @@
-// Import all of Bootstrap's CSS
+@use './partials/header';
+@use './partials/hero';
+@use './partials/about';
+@use './partials/projects';
+@use './partials/footer';
+
 @import "/node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+
+    p {
+        color: rgb(103, 103, 103);
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .title {
+        font-family: 'Bakbak One', cursive;
+    }
+}

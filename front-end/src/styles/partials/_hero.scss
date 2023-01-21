@@ -1,0 +1,69 @@
+.hero {
+    padding-top: 20rem;
+    padding-bottom: 10rem;
+    background-image: url('/img/WALLPAPER-MAN-YPGA.PNG');
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 15px center;
+    color: white;
+
+    a {
+        text-decoration: none;
+    }
+
+    .social {
+        position: absolute;
+        left: 0;
+        padding: 1rem .2rem 1rem .2rem;
+
+        svg {
+            color: black;
+            padding: 5px;
+            margin-top: 5px;
+            transition: all .2s ease 0s;
+
+            &:hover {
+                cursor: pointer;
+                color: #ee8b3add;
+                background-color: #341f0c15;
+            }
+        }
+    }
+
+    .call-to-action {
+
+        h1 {
+            font-family: 'Bakbak One', cursive;
+            scale: 1.4;
+        }
+
+        .p-back {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-top-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            padding: .5rem;
+        }
+
+        .button {
+            margin-top: 4rem;
+            width: 225px;
+            padding: 1rem;
+            border-radius: .2rem;
+            background: #EE8B3A;
+            color: black;
+            position: relative;
+            transition: all .4s ease 0s;
+
+            &:hover {
+                scale: 1.05;
+                cursor: pointer;
+            }
+
+            p {
+                letter-spacing: 1px;
+                font-weight: 600;
+            }
+
+        }
+    }
+}

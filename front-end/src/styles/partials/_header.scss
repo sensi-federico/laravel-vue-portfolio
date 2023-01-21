@@ -1,0 +1,33 @@
+nav {
+    font-family: 'Bakbak One', cursive;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
+    .logo {
+        h6 {
+            transition: all .3s ease 0s;
+
+            &:hover {
+                color: #EE8B3A;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .links {
+
+        width: 30%;
+
+        a {
+            text-decoration: none;
+            color: black;
+            letter-spacing: 1px;
+            transition: all .3s ease 0s;
+
+            &:hover {
+                color: #EE8B3A;
+            }
+        }
+    }
+}
