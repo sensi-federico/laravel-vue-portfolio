@@ -5,14 +5,25 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
     public function index()
     {
+        $project = Project::all();
+
         return response()->json([
             'success' => true,
-            'results' => Project::with(['technologies'])->orderByDesc('id')
+            'results' => $project
+        ]);
+    }
+
+    public function skill()
+    {
+        return response()->json([
+            'success' => true,
+            'results' => Technology::all()
         ]);
     }
 
