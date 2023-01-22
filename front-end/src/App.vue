@@ -1,16 +1,16 @@
 <script>
-import AppNav from './components/AppNav.vue'
+import AppHeader from './components/AppHeader.vue';
 
 export default {
     components: {
-        AppNav,
+        AppHeader
     }
 }
 </script>
 
 <template>
     <section class="vue-home">
-        <AppNav />
+        <AppHeader />
         <router-view></router-view>
     </section>
 </template>

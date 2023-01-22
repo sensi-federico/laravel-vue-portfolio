@@ -9,7 +9,8 @@ export default {
         }
     },
     mounted() {
-        store.callAxios()
+        store.callAxios(store.base_api_url + '/api/skills', 'skills')
+        store.callAxios(store.base_api_url + '/api/projects', 'projects')
     }
 }
 </script>
@@ -53,9 +54,9 @@ export default {
             </svg>
         </div>
         <div class="call-to-action d-flex flex-column align-items-center">
-            <h1 class="text-center text-uppercase pt-2">Hey, I'm a Web Developer</h1>
-            <p class="p-back text-center text-white mt-4 mb-0">
-                I am a young and ambitious Jr Full-Stack Web Developer
+            <h1 class="text-center text-uppercase pt-2">Hey, I'm Federico Sensi</h1>
+            <p class="p-back fw-bold text-center text-white mt-4 mb-0">
+                Take a look at my portfolio to see some of my recent work and <br> don't hesitate to contact me
             </p>
             <a href="#projects">
                 <div class="button text-center">
@@ -103,13 +104,40 @@ export default {
                 <div class="col-6" data-aos="fade-up" data-aos-duration="1000">
                     <h4 class="skill-title fw-bold pb-2">My Skills</h4>
                     <div class="skills">
-
-                        <h6>skill <i class=""></i></h6>
+                        <h6 v-for="skill in store.skills">{{ skill.name }} <i class=""></i></h6>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- /ABOUT SECTION -->
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects py-5" id="projects">
+        <div class="text d-flex flex-column align-items-center">
+            <h2 class="title text-uppercase text-center fw-bold">projects</h2>
+            <div class="underline"></div>
+            <p class="text-center mb-5 pb-5">
+                Here you will find some of the personal and clients projects that I created with each project containing
+                its
+                own case study
+            </p>
+        </div>
+        <div class="container">
+            <div class="row align-items-center py-5" v-for="project in store.projects">
+                <div class="col-7" data-aos="fade-up" data-aos-duration="1000">
+                    <img :src="store.getImagePath(project.image)" alt="{{ project.title }}">
+                </div>
+                <div class="col-5" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 class="fw-bold text-capitalize pt-2">{{ project.title }}</h2>
+                    <p class="pt-1">
+                        {{ project.description }}
+                    </p>
+                    <div class="project-button"><a href="">Watch Project</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /PROJECTS SECTION -->
 
 </template>
