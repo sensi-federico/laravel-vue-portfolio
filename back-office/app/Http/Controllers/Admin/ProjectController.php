@@ -53,7 +53,7 @@ class ProjectController extends Controller
         $val_data['slug'] = $project_slug;
 
         // storage the image
-        $image = Storage::disk('public')->put('placeholders', $request->image);
+        $image = Storage::disk('public')->put('uploads', $request->image);
         $val_data['image'] = $image;
 
         // create new project
@@ -110,7 +110,7 @@ class ProjectController extends Controller
             if ($project->image) {
                 Storage::disk('public')->delete($project->image);
             }
-            $image = Storage::disk('public')->put('placeholders', $val_data['image']);
+            $image = Storage::disk('public')->put('uploads', $val_data['image']);
             // replace the value of image inside $val_data
             $val_data['image'] = $image;
         }

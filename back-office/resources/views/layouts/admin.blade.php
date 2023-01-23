@@ -95,7 +95,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('admin.technologies.index') }}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-microchip"></i> Technologies
                                 </a>

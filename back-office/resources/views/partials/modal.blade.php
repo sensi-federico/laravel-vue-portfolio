@@ -10,7 +10,7 @@
                 Stai per cancellare definitivamente un progetto, sei sicuro?
             </div>
             <div class="modal-footer">
-                <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="post">
+                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">

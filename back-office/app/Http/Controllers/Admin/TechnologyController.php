@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Technology;
 
 class TechnologyController extends Controller
@@ -15,7 +17,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::all();
+        return view('admin.technologies.index', compact('technologies'));
     }
 
     /**
@@ -23,9 +26,9 @@ class TechnologyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Technology $technology)
     {
-        //
+        return view('admin.technologies.create');
     }
 
     /**
@@ -36,7 +39,11 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $val_data = $this->validation($request->all());
+
+        $technology = Technology::create($val_data);
+
+        return to_route('admin.technologies.index')->with('message', "$technology->name added successfully");
     }
 
     /**
@@ -58,7 +65,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
@@ -70,7 +77,11 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $val_data = $this->validation($request->all());
+
+        $technology->update($val_data);
+
+        return to_route('admin.technologies.index')->with('message', "$technology->name updated successfully");
     }
 
     /**
@@ -81,6 +92,16 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return to_route('admin.technologies.index')->with('message', "$technology->name deleted");
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'name' => 'required'
+        ])->validate();
+
+        return $validator;
     }
 }
