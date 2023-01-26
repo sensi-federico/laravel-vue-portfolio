@@ -1,18 +1,36 @@
 <script>
 import { store } from '../store'
+import axios from 'axios'
 import ProjectList from '../components/ProjectList.vue'
 
 export default {
     name: 'HomeView',
     data() {
         return {
-            store
+            store,
+            skills: ''
+        }
+    },
+    components: { ProjectList },
+    methods: {
+        callAxios(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    if (response.data.success) {
+                        console.log(response);
+                        this.skills = response.data.results
+                    }
+                })
+                .catch(error => {
+                    console.error(error)
+                    this.error = error.message
+                })
         }
     },
     mounted() {
-        store.callAxios(store.base_api_url + '/api/skills', 'skills')
-    },
-    components: { ProjectList }
+        this.callAxios(store.base_api_url + '/api/skills')
+    }
 }
 </script>
 
@@ -105,7 +123,7 @@ export default {
                 <div class="col-6" data-aos="fade-up" data-aos-duration="1000">
                     <h4 class="skill-title fw-bold pb-2">My Skills</h4>
                     <div class="skills">
-                        <h6 v-for="skill in store.skills">{{ skill.name }} <i class=""></i></h6>
+                        <h6 v-for="skill in this.skills">{{ skill.name }} <i class=""></i></h6>
                     </div>
                 </div>
             </div>

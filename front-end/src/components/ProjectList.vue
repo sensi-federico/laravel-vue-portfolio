@@ -1,23 +1,42 @@
 <script>
 import { store } from '../store'
+import axios from 'axios'
 
 export default {
     name: 'ProjectList',
 
     data() {
         return {
-            store
+            store,
+            projects: ''
+        }
+    },
+    methods: {
+        callAxios(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    if (response.data.success) {
+                        console.log(response);
+                        this.projects = response.data.results
+                    }
+                })
+                .catch(error => {
+                    console.error(error)
+                    this.error = error.message
+                })
         }
     },
     mounted() {
-        store.callAxios(store.base_api_url + '/api/projects', 'projects')
+        this.callAxios(store.base_api_url + '/api/projects')
     }
 }
 </script>
 
 <template>
 
-    <div class="row align-items-center py-5" v-for="project in store.projects">
+
+    <div class="row align-items-center py-5" v-for="project in this.projects">
         <div class="col-7" data-aos="fade-up" data-aos-duration="1000">
             <img :src="store.getImagePath(project.image)" alt="{{ project.title }}">
         </div>
